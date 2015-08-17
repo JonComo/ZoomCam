@@ -40,14 +40,6 @@
 }
 
 -(void)beginCaptureInView:(UIView *)previewView error:(NSError **)error success:(void(^)(void))successHandler {
-    static BOOL hasSetup = NO;
-    
-    if (hasSetup) {
-        *error = [NSError errorWithDomain:@"Already setup capture device" code:101 userInfo:nil];
-        return;
-    }
-    
-    hasSetup = YES;
     
     self.captureDevice = [CaptureManager cameraWithPosition:AVCaptureDevicePositionBack];
     
@@ -57,14 +49,15 @@
     }
     
     self.captureSession = [[AVCaptureSession alloc] init];
+    
     [self.captureSession beginConfiguration];
     
     self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
     
     self.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:self.captureDevice error:nil];
     
-    [self.videoInput.device addObserver:self forKeyPath:@"adjustingExposure" options:NSKeyValueObservingOptionNew context:NULL];
-    [self.videoInput.device addObserver:self forKeyPath:@"adjustingFocus" options:NSKeyValueObservingOptionNew context:NULL];
+//    [self.videoInput.device addObserver:self forKeyPath:@"adjustingExposure" options:NSKeyValueObservingOptionNew context:NULL];
+//    [self.videoInput.device addObserver:self forKeyPath:@"adjustingFocus" options:NSKeyValueObservingOptionNew context:NULL];
     
     
     if ([self.captureSession canAddInput:self.videoInput]) {
@@ -134,9 +127,9 @@
     [self.captureSession stopRunning];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    
-}
+//-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+//    
+//}
 
 #pragma mark - Recording
 

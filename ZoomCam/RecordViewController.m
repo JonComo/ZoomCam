@@ -25,7 +25,11 @@ const float defaultZoomAmount = 3.f;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 
 @property (nonatomic, strong) NSMutableArray *zoomTimes;
+@property (nonatomic, strong) NSTimer *zoomTimer;
 
+@property (nonatomic, assign) BOOL touching;
+@property (nonatomic, assign) CGFloat zoomLength;
+@property (nonatomic, assign) BOOL latestTouchState;
 
 @end
 
@@ -35,10 +39,22 @@ const float defaultZoomAmount = 3.f;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.navigationItem.hidesBackButton = YES;
-    
     self.zoomTimes = [NSMutableArray array];
     self.captureManager = [[CaptureManager alloc] initWithDelegate:self];
+    
+    self.zoomTimer = [NSTimer scheduledTimerWithTimeInterval:1.f/30.f target:self selector:@selector(checkTouch) userInfo:nil repeats:YES];
+    
+    self.touching = NO;
+    self.latestTouchState = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationItem.title = @"Record";
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -51,6 +67,10 @@ const float defaultZoomAmount = 3.f;
     [self.captureManager beginCaptureInView:self.zoomView error:&error success:^{
         
     }];
+    
+    if (error) {
+        NSLog(@"Error %@", error);
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -65,32 +85,52 @@ const float defaultZoomAmount = 3.f;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"dealloc record");
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
         if (touch.view == self.zoomView) {
-            [UIView animateWithDuration:defaultZoomTime animations:^{
-                self.zoomView.layer.transform = CATransform3DMakeScale(defaultZoomAmount, defaultZoomAmount, 1.f);
-            }];
-            
-            if (self.captureManager.recording) {
-                [self.zoomTimes addObject:@(self.captureManager.timeRecording)];
-            }
-            
-            NSLog(@"zoom in ");
+            self.touching = YES;
         }
     }
 }
 
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self touchesEnded:touches withEvent:event];
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [UIView animateWithDuration:defaultZoomTime animations:^{
-        self.zoomView.layer.transform = CATransform3DIdentity;
-    }];
+    self.touching = NO;
+}
+
+- (void)checkTouch {
+    if (self.zoomLength < defaultZoomTime) {
+        self.zoomLength += self.zoomTimer.timeInterval;
+        return;
+    }
+    
+    if (self.touching == self.latestTouchState) {
+        return;
+    }
+    
+    if (self.touching) {
+        [UIView animateWithDuration:defaultZoomTime animations:^{
+            self.zoomView.layer.transform = CATransform3DMakeScale(defaultZoomAmount, defaultZoomAmount, 1.f);
+        }];
+    } else {
+        [UIView animateWithDuration:defaultZoomTime animations:^{
+            self.zoomView.layer.transform = CATransform3DIdentity;
+        }];
+    }
     
     if (self.captureManager.recording) {
         [self.zoomTimes addObject:@(self.captureManager.timeRecording)];
     }
     
-    NSLog(@"zoom out");
+    self.zoomLength = 0.f;
+    self.latestTouchState = self.touching;
 }
 
 - (IBAction)record:(id)sender {

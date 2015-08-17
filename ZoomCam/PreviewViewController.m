@@ -36,6 +36,15 @@
     [self.view addSubview:self.moviePlayer.view];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationItem.title = @"Preview";
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
