@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "Constants.h"
+
 @interface ViewController ()
 
 @end
@@ -17,6 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self clearClips];
+}
+
+- (void)clearClips {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSArray *clips = [fileManager contentsOfDirectoryAtPath:[Constants clipsDirectory] error:nil];
+    for (NSString *clipName in clips) {
+        [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@/%@", [Constants clipsDirectory], clipName] error:nil];
+        NSLog(@"Cleared clip");
+    }
 }
 
 - (void)didReceiveMemoryWarning {

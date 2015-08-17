@@ -14,6 +14,12 @@
 		8696391D1B8262CC0058846F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8696391C1B8262CC0058846F /* Images.xcassets */; };
 		869639201B8262CC0058846F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8696391E1B8262CC0058846F /* LaunchScreen.xib */; };
 		8696392C1B8262CC0058846F /* ZoomCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8696392B1B8262CC0058846F /* ZoomCamTests.m */; };
+		869639371B82638B0058846F /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639361B82638B0058846F /* RecordViewController.m */; };
+		869639491B8263FB0058846F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639411B8263FB0058846F /* Constants.m */; };
+		869639501B8271D00058846F /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8696394F1B8271D00058846F /* PreviewViewController.m */; };
+		8696395A1B8274240058846F /* CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639551B8274240058846F /* CaptureManager.m */; };
+		8696395B1B8274240058846F /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639571B8274240058846F /* Clip.m */; };
+		8696395C1B8274240058846F /* Composition.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639591B8274240058846F /* Composition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,18 @@
 		869639251B8262CC0058846F /* ZoomCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZoomCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8696392A1B8262CC0058846F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8696392B1B8262CC0058846F /* ZoomCamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomCamTests.m; sourceTree = "<group>"; };
+		869639351B82638B0058846F /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		869639361B82638B0058846F /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		869639411B8263FB0058846F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../../Sequencer2/Sequencer2/Constants.m; sourceTree = "<group>"; };
+		869639421B8263FB0058846F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../Sequencer2/Sequencer2/Constants.h; sourceTree = "<group>"; };
+		8696394E1B8271D00058846F /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		8696394F1B8271D00058846F /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
+		869639541B8274240058846F /* CaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaptureManager.h; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/CaptureManager.h; sourceTree = "<absolute>"; };
+		869639551B8274240058846F /* CaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaptureManager.m; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/CaptureManager.m; sourceTree = "<absolute>"; };
+		869639561B8274240058846F /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Clip.h; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/Clip.h; sourceTree = "<absolute>"; };
+		869639571B8274240058846F /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Clip.m; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/Clip.m; sourceTree = "<absolute>"; };
+		869639581B8274240058846F /* Composition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Composition.h; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/Composition.h; sourceTree = "<absolute>"; };
+		869639591B8274240058846F /* Composition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Composition.m; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/Composition.m; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +99,17 @@
 		8696390E1B8262CC0058846F /* ZoomCam */ = {
 			isa = PBXGroup;
 			children = (
+				869639411B8263FB0058846F /* Constants.m */,
+				869639421B8263FB0058846F /* Constants.h */,
+				8696394D1B82642B0058846F /* Recording */,
 				869639131B8262CC0058846F /* AppDelegate.h */,
 				869639141B8262CC0058846F /* AppDelegate.m */,
 				869639161B8262CC0058846F /* ViewController.h */,
 				869639171B8262CC0058846F /* ViewController.m */,
+				869639351B82638B0058846F /* RecordViewController.h */,
+				869639361B82638B0058846F /* RecordViewController.m */,
+				8696394E1B8271D00058846F /* PreviewViewController.h */,
+				8696394F1B8271D00058846F /* PreviewViewController.m */,
 				869639191B8262CC0058846F /* Main.storyboard */,
 				8696391C1B8262CC0058846F /* Images.xcassets */,
 				8696391E1B8262CC0058846F /* LaunchScreen.xib */,
@@ -117,6 +142,19 @@
 				8696392A1B8262CC0058846F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8696394D1B82642B0058846F /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				869639541B8274240058846F /* CaptureManager.h */,
+				869639551B8274240058846F /* CaptureManager.m */,
+				869639561B8274240058846F /* Clip.h */,
+				869639571B8274240058846F /* Clip.m */,
+				869639581B8274240058846F /* Composition.h */,
+				869639591B8274240058846F /* Composition.m */,
+			);
+			name = Recording;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +257,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8696395C1B8274240058846F /* Composition.m in Sources */,
+				8696395B1B8274240058846F /* Clip.m in Sources */,
+				869639491B8263FB0058846F /* Constants.m in Sources */,
+				8696395A1B8274240058846F /* CaptureManager.m in Sources */,
 				869639181B8262CC0058846F /* ViewController.m in Sources */,
 				869639151B8262CC0058846F /* AppDelegate.m in Sources */,
+				869639501B8271D00058846F /* PreviewViewController.m in Sources */,
 				869639121B8262CC0058846F /* main.m in Sources */,
+				869639371B82638B0058846F /* RecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
