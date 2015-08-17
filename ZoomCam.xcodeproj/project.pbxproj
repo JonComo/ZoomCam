@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		869639121B8262CC0058846F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639111B8262CC0058846F /* main.m */; };
+		869639151B8262CC0058846F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639141B8262CC0058846F /* AppDelegate.m */; };
+		869639181B8262CC0058846F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639171B8262CC0058846F /* ViewController.m */; };
+		8696391B1B8262CC0058846F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 869639191B8262CC0058846F /* Main.storyboard */; };
+		8696391D1B8262CC0058846F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8696391C1B8262CC0058846F /* Images.xcassets */; };
+		869639201B8262CC0058846F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8696391E1B8262CC0058846F /* LaunchScreen.xib */; };
+		8696392C1B8262CC0058846F /* ZoomCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8696392B1B8262CC0058846F /* ZoomCamTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		869639261B8262CC0058846F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 869639041B8262CC0058846F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8696390B1B8262CC0058846F;
+			remoteInfo = ZoomCam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8696390C1B8262CC0058846F /* ZoomCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoomCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		869639101B8262CC0058846F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		869639111B8262CC0058846F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		869639131B8262CC0058846F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		869639141B8262CC0058846F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		869639161B8262CC0058846F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		869639171B8262CC0058846F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8696391A1B8262CC0058846F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8696391C1B8262CC0058846F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8696391F1B8262CC0058846F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		869639251B8262CC0058846F /* ZoomCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZoomCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8696392A1B8262CC0058846F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8696392B1B8262CC0058846F /* ZoomCamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomCamTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		869639091B8262CC0058846F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		869639221B8262CC0058846F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		869639031B8262CC0058846F = {
+			isa = PBXGroup;
+			children = (
+				8696390E1B8262CC0058846F /* ZoomCam */,
+				869639281B8262CC0058846F /* ZoomCamTests */,
+				8696390D1B8262CC0058846F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8696390D1B8262CC0058846F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8696390C1B8262CC0058846F /* ZoomCam.app */,
+				869639251B8262CC0058846F /* ZoomCamTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8696390E1B8262CC0058846F /* ZoomCam */ = {
+			isa = PBXGroup;
+			children = (
+				869639131B8262CC0058846F /* AppDelegate.h */,
+				869639141B8262CC0058846F /* AppDelegate.m */,
+				869639161B8262CC0058846F /* ViewController.h */,
+				869639171B8262CC0058846F /* ViewController.m */,
+				869639191B8262CC0058846F /* Main.storyboard */,
+				8696391C1B8262CC0058846F /* Images.xcassets */,
+				8696391E1B8262CC0058846F /* LaunchScreen.xib */,
+				8696390F1B8262CC0058846F /* Supporting Files */,
+			);
+			path = ZoomCam;
+			sourceTree = "<group>";
+		};
+		8696390F1B8262CC0058846F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				869639101B8262CC0058846F /* Info.plist */,
+				869639111B8262CC0058846F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		869639281B8262CC0058846F /* ZoomCamTests */ = {
+			isa = PBXGroup;
+			children = (
+				8696392B1B8262CC0058846F /* ZoomCamTests.m */,
+				869639291B8262CC0058846F /* Supporting Files */,
+			);
+			path = ZoomCamTests;
+			sourceTree = "<group>";
+		};
+		869639291B8262CC0058846F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8696392A1B8262CC0058846F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8696390B1B8262CC0058846F /* ZoomCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8696392F1B8262CC0058846F /* Build configuration list for PBXNativeTarget "ZoomCam" */;
+			buildPhases = (
+				869639081B8262CC0058846F /* Sources */,
+				869639091B8262CC0058846F /* Frameworks */,
+				8696390A1B8262CC0058846F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZoomCam;
+			productName = ZoomCam;
+			productReference = 8696390C1B8262CC0058846F /* ZoomCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		869639241B8262CC0058846F /* ZoomCamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 869639321B8262CC0058846F /* Build configuration list for PBXNativeTarget "ZoomCamTests" */;
+			buildPhases = (
+				869639211B8262CC0058846F /* Sources */,
+				869639221B8262CC0058846F /* Frameworks */,
+				869639231B8262CC0058846F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				869639271B8262CC0058846F /* PBXTargetDependency */,
+			);
+			name = ZoomCamTests;
+			productName = ZoomCamTests;
+			productReference = 869639251B8262CC0058846F /* ZoomCamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		869639041B8262CC0058846F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Jon Como";
+				TargetAttributes = {
+					8696390B1B8262CC0058846F = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					869639241B8262CC0058846F = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 8696390B1B8262CC0058846F;
+					};
+				};
+			};
+			buildConfigurationList = 869639071B8262CC0058846F /* Build configuration list for PBXProject "ZoomCam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 869639031B8262CC0058846F;
+			productRefGroup = 8696390D1B8262CC0058846F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8696390B1B8262CC0058846F /* ZoomCam */,
+				869639241B8262CC0058846F /* ZoomCamTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8696390A1B8262CC0058846F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8696391B1B8262CC0058846F /* Main.storyboard in Resources */,
+				869639201B8262CC0058846F /* LaunchScreen.xib in Resources */,
+				8696391D1B8262CC0058846F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		869639231B8262CC0058846F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		869639081B8262CC0058846F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				869639181B8262CC0058846F /* ViewController.m in Sources */,
+				869639151B8262CC0058846F /* AppDelegate.m in Sources */,
+				869639121B8262CC0058846F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		869639211B8262CC0058846F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8696392C1B8262CC0058846F /* ZoomCamTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		869639271B8262CC0058846F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8696390B1B8262CC0058846F /* ZoomCam */;
+			targetProxy = 869639261B8262CC0058846F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		869639191B8262CC0058846F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8696391A1B8262CC0058846F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8696391E1B8262CC0058846F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8696391F1B8262CC0058846F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8696392D1B8262CC0058846F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8696392E1B8262CC0058846F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		869639301B8262CC0058846F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZoomCam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		869639311B8262CC0058846F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZoomCam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		869639331B8262CC0058846F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZoomCamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZoomCam.app/ZoomCam";
+			};
+			name = Debug;
+		};
+		869639341B8262CC0058846F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZoomCamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZoomCam.app/ZoomCam";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		869639071B8262CC0058846F /* Build configuration list for PBXProject "ZoomCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8696392D1B8262CC0058846F /* Debug */,
+				8696392E1B8262CC0058846F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8696392F1B8262CC0058846F /* Build configuration list for PBXNativeTarget "ZoomCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				869639301B8262CC0058846F /* Debug */,
+				869639311B8262CC0058846F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		869639321B8262CC0058846F /* Build configuration list for PBXNativeTarget "ZoomCamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				869639331B8262CC0058846F /* Debug */,
+				869639341B8262CC0058846F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 869639041B8262CC0058846F /* Project object */;
+}
