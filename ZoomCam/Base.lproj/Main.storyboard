@@ -18,13 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-aI-g1A">
-                                <rect key="frame" x="249" y="510" width="102" height="30"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="VT9-fi-Kcx">
+                                <rect key="frame" x="172" y="172" width="256" height="256"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="KVB-Hw-4Cv"/>
-                                    <constraint firstAttribute="width" constant="102" id="tME-Yp-xbD"/>
+                                    <constraint firstAttribute="height" constant="256" id="66X-va-bdB"/>
+                                    <constraint firstAttribute="width" constant="256" id="ktr-9p-eTO"/>
                                 </constraints>
-                                <state key="normal" title="New">
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-aI-g1A">
+                                <rect key="frame" x="185" y="436" width="230" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="5Qs-rd-fYH"/>
+                                    <constraint firstAttribute="height" constant="52" id="Jwd-Hd-FGm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="CREATE">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -34,10 +43,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="8W1-aI-g1A" secondAttribute="centerX" id="OK6-cd-7M4"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8W1-aI-g1A" secondAttribute="bottom" constant="60" id="TXs-Wu-vno"/>
+                            <constraint firstAttribute="centerX" secondItem="VT9-fi-Kcx" secondAttribute="centerX" id="1A9-mZ-56i"/>
+                            <constraint firstAttribute="centerY" secondItem="VT9-fi-Kcx" secondAttribute="centerY" id="A8W-Jy-UMd"/>
+                            <constraint firstItem="VT9-fi-Kcx" firstAttribute="centerX" secondItem="8W1-aI-g1A" secondAttribute="centerX" id="Hj8-ft-Uhq"/>
+                            <constraint firstItem="8W1-aI-g1A" firstAttribute="top" secondItem="VT9-fi-Kcx" secondAttribute="bottom" constant="8" id="bAE-63-A1M"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageViewLogo" destination="VT9-fi-Kcx" id="44G-2c-Lst"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,40 +92,72 @@
                                     <constraint firstAttribute="width" secondItem="xuG-6p-WsR" secondAttribute="height" multiplier="1:1" id="FOv-2J-WK2"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8n0-iM-TXC">
-                                <rect key="frame" x="123" y="392" width="74" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8n0-iM-TXC">
+                                <rect key="frame" x="80" y="388" width="160" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="74" id="9lQ-Qe-7dd"/>
-                                    <constraint firstAttribute="height" constant="30" id="TdT-gz-wyb"/>
+                                    <constraint firstAttribute="width" constant="160" id="83w-1A-RBc"/>
+                                    <constraint firstAttribute="height" constant="160" id="VPh-g4-Vhb"/>
                                 </constraints>
-                                <state key="normal" title="Record">
+                                <state key="normal" title="Record" image="record.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="record:" destination="yEh-V8-Xn3" eventType="touchUpInside" id="T0R-kO-Xal"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WbI-Mt-zSR">
+                                <rect key="frame" x="244" y="488" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ZaW-BQ-mhu"/>
+                                    <constraint firstAttribute="width" constant="60" id="aen-8h-SYy"/>
+                                </constraints>
+                                <state key="normal" image="spin.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="spinCam:" destination="yEh-V8-Xn3" eventType="touchUpInside" id="AZp-7H-EO7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZF-Gr-Oms">
+                                <rect key="frame" x="16" y="488" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HEL-Jx-75d"/>
+                                    <constraint firstAttribute="width" constant="60" id="R6l-Fe-w9L"/>
+                                </constraints>
+                                <state key="normal" image="cancel.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="yEh-V8-Xn3" eventType="touchUpInside" id="Xmv-sq-AHO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xuG-6p-WsR" secondAttribute="trailing" id="I5b-kN-BhX"/>
-                            <constraint firstItem="8n0-iM-TXC" firstAttribute="top" secondItem="xuG-6p-WsR" secondAttribute="bottom" constant="8" id="awC-2H-dwe"/>
+                            <constraint firstAttribute="centerX" secondItem="8n0-iM-TXC" secondAttribute="centerX" id="MaF-WP-BDv"/>
+                            <constraint firstItem="CZF-Gr-Oms" firstAttribute="leading" secondItem="iEX-L0-WTu" secondAttribute="leadingMargin" id="N61-kk-oae"/>
+                            <constraint firstItem="i3e-Bg-9oL" firstAttribute="top" secondItem="WbI-Mt-zSR" secondAttribute="bottom" constant="20" id="cez-gL-Ne0"/>
                             <constraint firstItem="xuG-6p-WsR" firstAttribute="top" secondItem="iEX-L0-WTu" secondAttribute="top" constant="64" id="hSZ-w2-4pf"/>
+                            <constraint firstItem="i3e-Bg-9oL" firstAttribute="top" secondItem="CZF-Gr-Oms" secondAttribute="bottom" constant="20" id="hZh-mi-n8f"/>
+                            <constraint firstItem="i3e-Bg-9oL" firstAttribute="top" secondItem="8n0-iM-TXC" secondAttribute="bottom" constant="20" id="l3v-LD-iL4"/>
                             <constraint firstItem="xuG-6p-WsR" firstAttribute="leading" secondItem="iEX-L0-WTu" secondAttribute="leading" id="qUW-gg-yHv"/>
-                            <constraint firstAttribute="centerX" secondItem="8n0-iM-TXC" secondAttribute="centerX" id="uMs-Fm-l0h"/>
+                            <constraint firstItem="WbI-Mt-zSR" firstAttribute="trailing" secondItem="iEX-L0-WTu" secondAttribute="trailingMargin" id="yLK-pm-JBt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LMe-rs-yOy"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="buttonCancel" destination="CZF-Gr-Oms" id="0bq-tR-mGt"/>
+                        <outlet property="buttonRecord" destination="8n0-iM-TXC" id="zwH-VG-U52"/>
+                        <outlet property="buttonSpin" destination="WbI-Mt-zSR" id="HxL-9R-T8X"/>
                         <outlet property="previewView" destination="xuG-6p-WsR" id="ezk-PN-6vt"/>
-                        <outlet property="recordButton" destination="8n0-iM-TXC" id="oUT-xn-x6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4a4-3Y-Mql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="363"/>
+            <point key="canvasLocation" x="882" y="363"/>
         </scene>
         <!--Preview View Controller-->
         <scene sceneID="f5X-GU-7GD">
@@ -125,47 +171,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yY-NP-Psu">
-                                <rect key="frame" x="124" y="518" width="73" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yK4-2w-uNm">
+                                <rect key="frame" x="244" y="488" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="P4F-mc-NBv"/>
-                                    <constraint firstAttribute="width" constant="73" id="PGt-iF-bLu"/>
+                                    <constraint firstAttribute="width" constant="60" id="azV-LJ-0yA"/>
+                                    <constraint firstAttribute="height" constant="60" id="bEP-gI-UXA"/>
                                 </constraints>
-                                <state key="normal" title="Share">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1V-cy-tlZ">
-                                <rect key="frame" x="16" y="518" width="68" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="gsa-E5-C13"/>
-                                    <constraint firstAttribute="width" constant="68" id="ly6-qv-abd"/>
-                                </constraints>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" image="share.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancel:" destination="xMe-VS-ldm" eventType="touchUpInside" id="Ny8-a6-kx6"/>
+                                    <action selector="share:" destination="xMe-VS-ldm" eventType="touchUpInside" id="pxb-1y-OAF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiL-tA-I8c">
+                                <rect key="frame" x="16" y="488" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ihd-ht-XtT"/>
+                                    <constraint firstAttribute="width" constant="60" id="ntS-t3-DXv"/>
+                                </constraints>
+                                <state key="normal" image="cancel.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="yEh-V8-Xn3" eventType="touchUpInside" id="ZfZ-v6-E22"/>
+                                    <action selector="cancel:" destination="xMe-VS-ldm" eventType="touchUpInside" id="kJ6-nx-JD5"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kOf-qN-Eic" firstAttribute="top" secondItem="D1V-cy-tlZ" secondAttribute="bottom" constant="20" id="4CO-UI-e2w"/>
-                            <constraint firstItem="D1V-cy-tlZ" firstAttribute="leading" secondItem="0aD-dc-CwR" secondAttribute="leadingMargin" id="Cn5-Kb-923"/>
-                            <constraint firstAttribute="centerX" secondItem="0yY-NP-Psu" secondAttribute="centerX" id="cms-BC-doL"/>
-                            <constraint firstItem="kOf-qN-Eic" firstAttribute="top" secondItem="0yY-NP-Psu" secondAttribute="bottom" constant="20" id="rBx-A4-6FB"/>
+                            <constraint firstItem="yK4-2w-uNm" firstAttribute="trailing" secondItem="0aD-dc-CwR" secondAttribute="trailingMargin" id="FXh-oR-pGd"/>
+                            <constraint firstItem="SiL-tA-I8c" firstAttribute="leading" secondItem="0aD-dc-CwR" secondAttribute="leadingMargin" id="cBr-mr-pi8"/>
+                            <constraint firstItem="kOf-qN-Eic" firstAttribute="top" secondItem="yK4-2w-uNm" secondAttribute="bottom" constant="20" id="s1W-zs-Q5U"/>
+                            <constraint firstItem="kOf-qN-Eic" firstAttribute="top" secondItem="SiL-tA-I8c" secondAttribute="bottom" constant="20" id="vtI-ka-HRl"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
-                    <connections>
-                        <outlet property="buttonShare" destination="0yY-NP-Psu" id="PCL-YV-reY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXa-oS-swk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="363"/>
+            <point key="canvasLocation" x="1281" y="363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel.png" width="256" height="256"/>
+        <image name="logo.png" width="256" height="256"/>
+        <image name="record.png" width="256" height="256"/>
+        <image name="share.png" width="256" height="256"/>
+        <image name="spin.png" width="256" height="256"/>
+    </resources>
 </document>

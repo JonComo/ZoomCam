@@ -12,6 +12,8 @@
 
 #import "Constants.h"
 
+const NSString *defaultsCamPositionKey = @"camPosition";
+
 @interface CaptureManager () <AVCaptureFileOutputRecordingDelegate>
 
 @property (nonatomic, strong) AVCaptureDevice *captureDevice;
@@ -34,14 +36,15 @@
     if (self = [super init]) {
         // init
         _delegate = delegate;
+        _canRecord = NO;
     }
     
     return self;
 }
 
--(void)beginCaptureInView:(UIView *)previewView error:(NSError **)error success:(void(^)(void))successHandler {
+- (void)beginCaptureInView:(UIView *)previewView error:(NSError **)error success:(void(^)(void))successHandler {
     
-    self.captureDevice = [CaptureManager cameraWithPosition:AVCaptureDevicePositionBack];
+    self.captureDevice = [CaptureManager cameraWithPosition:AVCaptureDevicePositionFront];
     
     if (!self.captureDevice) {
         *error = [NSError errorWithDomain:@"Couldn't find capture device" code:101 userInfo:nil];
@@ -54,18 +57,7 @@
     
     self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
     
-    self.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:self.captureDevice error:nil];
-    
-//    [self.videoInput.device addObserver:self forKeyPath:@"adjustingExposure" options:NSKeyValueObservingOptionNew context:NULL];
-//    [self.videoInput.device addObserver:self forKeyPath:@"adjustingFocus" options:NSKeyValueObservingOptionNew context:NULL];
-    
-    
-    if ([self.captureSession canAddInput:self.videoInput]) {
-        [self.captureSession addInput:self.videoInput];
-    }else{
-        *error = [NSError errorWithDomain:@"Error setting video input." code:101 userInfo:nil];
-        return;
-    }
+    [self setupDeviceWithPosition:AVCaptureDevicePositionFront];
     
     AVCaptureDevice *audioDevice = [CaptureManager audioDevice];
     
@@ -127,9 +119,41 @@
     [self.captureSession stopRunning];
 }
 
+- (void)setupDeviceWithPosition:(AVCaptureDevicePosition)position {
+    
+    self.captureDevice = [CaptureManager cameraWithPosition:position];
+    
+    [self.captureSession beginConfiguration];
+    
+    [self.captureSession removeInput:self.videoInput];
+    self.videoInput = nil;
+    
+    self.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:self.captureDevice error:nil];
+    
+    //    [self.videoInput.device addObserver:self forKeyPath:@"adjustingExposure" options:NSKeyValueObservingOptionNew context:NULL];
+    //    [self.videoInput.device addObserver:self forKeyPath:@"adjustingFocus" options:NSKeyValueObservingOptionNew context:NULL];
+    
+    if ([self.captureSession canAddInput:self.videoInput]) {
+        [self.captureSession addInput:self.videoInput];
+    }else{
+        //*error = [NSError errorWithDomain:@"Error setting video input." code:101 userInfo:nil];
+        return;
+    }
+    
+    [self.captureSession commitConfiguration];
+}
+
 //-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 //    
 //}
+
+- (void)toggleCamera {
+    if (self.captureDevice.position == AVCaptureDevicePositionFront) {
+        [self setupDeviceWithPosition:AVCaptureDevicePositionBack];
+    } else {
+        [self setupDeviceWithPosition:AVCaptureDevicePositionFront];
+    }
+}
 
 #pragma mark - Recording
 
@@ -143,7 +167,6 @@
     NSLog(@"Recording");
     
     self.recording = YES;
-    self.canRecord = NO;
     
     [self.movieFileOutput startRecordingToOutputFileURL:[Constants uniqueClipURL] recordingDelegate:self];
 }
@@ -196,7 +219,6 @@
 #pragma mark - AVCaptureFileOutputRecordingDelegate
 
 -(void)captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections {
-    self.canRecord = NO;
     
     if ([self.delegate respondsToSelector:@selector(captureManagerDidBeginRecording:)]) {
         [self.delegate captureManagerDidBeginRecording:self];
@@ -206,7 +228,6 @@
 }
 
 -(void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error {
-    self.canRecord = YES;
     self.recording = NO;
     
     [self.timerRecording invalidate];

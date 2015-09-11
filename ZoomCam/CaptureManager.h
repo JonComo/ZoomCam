@@ -36,6 +36,6 @@
 - (void)record;
 - (void)stop;
 
-
+- (void)toggleCamera;
 
 @end

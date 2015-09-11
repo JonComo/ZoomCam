@@ -12,6 +12,9 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewLogo;
+@property (nonatomic, strong) NSTimer *timerLogo;
+
 @end
 
 @implementation ViewController
@@ -19,12 +22,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.imageViewLogo.layer.zPosition = 100.f;
+    
+    self.view.backgroundColor = [Constants defaultBackgroundColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self clearClips];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (!self.timerLogo) {
+        self.timerLogo = [NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(animateLogo) userInfo:nil repeats:YES];
+    }
+}
+
+- (void)animateLogo {
+    if (self.presentedViewController) {
+        return;
+    }
+    
+    NSLog(@"boom");
+    
+    UIImageView *copy = [[UIImageView alloc] initWithFrame:self.imageViewLogo.frame];
+    copy.image = self.imageViewLogo.image;
+    copy.alpha = .2f;
+    copy.layer.zPosition = 0.f;
+    [self.view addSubview:copy];
+    
+    __weak ViewController *weakSelf = self;
+    
+    const CGFloat zoom = 2.f;
+    
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView animateWithDuration:4.f animations:^{
+        copy.layer.transform = CATransform3DMakeScale(zoom, zoom, zoom);
+        copy.alpha = 0.f;
+    } completion:^(BOOL finished) {
+        [copy removeFromSuperview];
+    }];
 }
 
 - (void)clearClips {

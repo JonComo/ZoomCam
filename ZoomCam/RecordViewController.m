@@ -22,7 +22,7 @@ const float defaultZoomAmount = 3.f;
 @property (nonatomic, strong) CaptureManager *captureManager;
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (nonatomic, strong) UIView *zoomView;
-@property (weak, nonatomic) IBOutlet UIButton *recordButton;
+@property (weak, nonatomic) IBOutlet UIButton *buttonRecord;
 
 @property (nonatomic, strong) NSMutableArray *zoomTimes;
 @property (nonatomic, strong) NSTimer *zoomTimer;
@@ -30,6 +30,9 @@ const float defaultZoomAmount = 3.f;
 @property (nonatomic, assign) BOOL touching;
 @property (nonatomic, assign) CGFloat zoomLength;
 @property (nonatomic, assign) BOOL latestTouchState;
+
+@property (weak, nonatomic) IBOutlet UIButton *buttonSpin;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCancel;
 
 @end
 
@@ -46,6 +49,12 @@ const float defaultZoomAmount = 3.f;
     
     self.touching = NO;
     self.latestTouchState = NO;
+    
+    [self.previewView.layer setZPosition:100.f];
+}
+
+- (void)cancel {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -59,6 +68,10 @@ const float defaultZoomAmount = 3.f;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    UIView *bgView = [[UIView alloc] initWithFrame:self.previewView.frame];
+    bgView.backgroundColor = [UIColor blackColor];
+    [self.view insertSubview:bgView belowSubview:self.previewView];
     
     self.zoomView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.previewView.bounds.size.width, self.previewView.bounds.size.height)];
     [self.previewView addSubview:self.zoomView];
@@ -134,22 +147,86 @@ const float defaultZoomAmount = 3.f;
 }
 
 - (IBAction)record:(id)sender {
+    if (!self.captureManager.canRecord) {
+        return;
+    }
+    
     if (!self.captureManager.recording) {
         [self.captureManager record];
-        [self.recordButton setTitle:@"Done" forState:UIControlStateNormal];
+        [self.buttonRecord setImage:[UIImage imageNamed:@"done"] forState:UIControlStateNormal];
+        
+        self.buttonSpin.userInteractionEnabled = NO;
+        self.buttonCancel.userInteractionEnabled = NO;
+        
+        __weak RecordViewController *weakSelf = self;
+        [UIView animateWithDuration:.3f animations:^{
+            weakSelf.buttonCancel.layer.transform = CATransform3DMakeTranslation(0.f, 100.f, 0.f);
+            weakSelf.buttonSpin.layer.transform = CATransform3DMakeTranslation(0.f, 100.f, 0.f);
+        }];
+        
     } else {
         [sender setUserInteractionEnabled:NO];
+        
+        [self.buttonRecord setImage:[UIImage imageNamed:@"circle"] forState:UIControlStateNormal];
+        UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        activity.center = self.buttonRecord.center;
+        [activity startAnimating];
+        activity.color = [UIColor blackColor];
+        [self.view addSubview:activity];
+        
         [self.captureManager stop];
     }
+}
+
+- (IBAction)spinCam:(id)sender {
+    const CGFloat time = .15f;
+    
+    self.buttonSpin.userInteractionEnabled = NO;
+    
+    __weak RecordViewController *weakSelf = self;
+    
+    self.buttonSpin.layer.transform = CATransform3DIdentity;
+    [UIView animateWithDuration:.3f animations:^{
+        weakSelf.buttonSpin.layer.transform = CATransform3DMakeRotation(M_PI * 2.f, 0.f, 0.f, 1.f);
+    }];
+    
+    [UIView animateWithDuration:time animations:^{
+        weakSelf.previewView.layer.transform = CATransform3DMakeRotation(M_PI_2, 0.f, 1.f, 0.f);
+    } completion:^(BOOL finished) {
+        
+        [weakSelf.captureManager toggleCamera];
+
+        [UIView animateWithDuration:time animations:^{
+            weakSelf.previewView.layer.transform = CATransform3DIdentity;
+        } completion:^(BOOL finished) {
+            weakSelf.buttonSpin.userInteractionEnabled = YES;
+        }];
+    }];
+}
+
+- (IBAction)cancel:(id)sender {
+    __weak RecordViewController *weakSelf = self;
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)captureManagerDidBeginRecording:(CaptureManager *)manager {
     self.previewView.layer.borderColor = [UIColor redColor].CGColor;
     self.previewView.layer.borderWidth = 2.f;
+    self.buttonSpin.userInteractionEnabled = NO;
 }
 
 - (void)captureManagerDidFinishRecording:(CaptureManager *)manager clip:(Clip *)clip {
     self.previewView.layer.borderWidth = 0.f;
+    self.buttonSpin.userInteractionEnabled = YES;
     
     __weak RecordViewController *weakSelf = self;
     [self renderFullClip:clip completion:^(NSURL *outputURL) {

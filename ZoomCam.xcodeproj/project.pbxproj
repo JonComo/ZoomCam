@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8654AAD01B8BBE0B002A22FA /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8654AACF1B8BBE0B002A22FA /* logo@2x.png */; };
+		8654AAD31B8BC0CC002A22FA /* record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8654AAD11B8BC0CC002A22FA /* record@2x.png */; };
+		8654AAD41B8BC0CC002A22FA /* stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8654AAD21B8BC0CC002A22FA /* stop@2x.png */; };
+		867E0FEE1BA2FC8D008651FB /* GPUCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 867E0FED1BA2FC8D008651FB /* GPUCaptureManager.m */; };
 		869639121B8262CC0058846F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639111B8262CC0058846F /* main.m */; };
 		869639151B8262CC0058846F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639141B8262CC0058846F /* AppDelegate.m */; };
 		869639181B8262CC0058846F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639171B8262CC0058846F /* ViewController.m */; };
@@ -20,9 +24,28 @@
 		8696395A1B8274240058846F /* CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639551B8274240058846F /* CaptureManager.m */; };
 		8696395B1B8274240058846F /* Clip.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639571B8274240058846F /* Clip.m */; };
 		8696395C1B8274240058846F /* Composition.m in Sources */ = {isa = PBXBuildFile; fileRef = 869639591B8274240058846F /* Composition.m */; };
+		86A5C7EC1B8C100E00C07587 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5C7EA1B8C100E00C07587 /* share@2x.png */; };
+		86A5C7ED1B8C100E00C07587 /* spin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5C7EB1B8C100E00C07587 /* spin@2x.png */; };
+		86A5C7EF1B8C12C600C07587 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A5C7EE1B8C12C600C07587 /* cancel@2x.png */; };
+		86C3DA551B8D2335006149DD /* done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C3DA541B8D2335006149DD /* done@2x.png */; };
+		86C3DA571B8D24BB006149DD /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C3DA561B8D24BB006149DD /* circle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		867E0FE81BA2FC7D008651FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 867E0FE21BA2FC7C008651FB /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		867E0FEA1BA2FC7D008651FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 867E0FE21BA2FC7C008651FB /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 		869639261B8262CC0058846F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 869639041B8262CC0058846F /* Project object */;
@@ -33,6 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8654AACF1B8BBE0B002A22FA /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		8654AAD11B8BC0CC002A22FA /* record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "record@2x.png"; sourceTree = "<group>"; };
+		8654AAD21B8BC0CC002A22FA /* stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop@2x.png"; sourceTree = "<group>"; };
+		867E0FE21BA2FC7C008651FB /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../Libraries/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		867E0FEC1BA2FC8D008651FB /* GPUCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUCaptureManager.h; sourceTree = "<group>"; };
+		867E0FED1BA2FC8D008651FB /* GPUCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUCaptureManager.m; sourceTree = "<group>"; };
 		8696390C1B8262CC0058846F /* ZoomCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoomCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		869639101B8262CC0058846F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		869639111B8262CC0058846F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +87,11 @@
 		869639571B8274240058846F /* Clip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Clip.m; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/Clip.m; sourceTree = "<absolute>"; };
 		869639581B8274240058846F /* Composition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Composition.h; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/Composition.h; sourceTree = "<absolute>"; };
 		869639591B8274240058846F /* Composition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Composition.m; path = /Users/joncomo/Documents/Development/ZoomCam/ZoomCam/Composition.m; sourceTree = "<absolute>"; };
+		86A5C7EA1B8C100E00C07587 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
+		86A5C7EB1B8C100E00C07587 /* spin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spin@2x.png"; sourceTree = "<group>"; };
+		86A5C7EE1B8C12C600C07587 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
+		86C3DA541B8D2335006149DD /* done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done@2x.png"; sourceTree = "<group>"; };
+		86C3DA561B8D24BB006149DD /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +112,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8654AACA1B8BBDEA002A22FA /* media */ = {
+			isa = PBXGroup;
+			children = (
+				86C3DA561B8D24BB006149DD /* circle@2x.png */,
+				86C3DA541B8D2335006149DD /* done@2x.png */,
+				86A5C7EE1B8C12C600C07587 /* cancel@2x.png */,
+				86A5C7EA1B8C100E00C07587 /* share@2x.png */,
+				86A5C7EB1B8C100E00C07587 /* spin@2x.png */,
+				8654AAD11B8BC0CC002A22FA /* record@2x.png */,
+				8654AAD21B8BC0CC002A22FA /* stop@2x.png */,
+				8654AACF1B8BBE0B002A22FA /* logo@2x.png */,
+			);
+			path = media;
+			sourceTree = "<group>";
+		};
+		867E0FE31BA2FC7C008651FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				867E0FE91BA2FC7D008651FB /* libGPUImage.a */,
+				867E0FEB1BA2FC7D008651FB /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		869639031B8262CC0058846F = {
 			isa = PBXGroup;
 			children = (
+				867E0FE21BA2FC7C008651FB /* GPUImage.xcodeproj */,
 				8696390E1B8262CC0058846F /* ZoomCam */,
 				869639281B8262CC0058846F /* ZoomCamTests */,
 				8696390D1B8262CC0058846F /* Products */,
@@ -99,6 +158,7 @@
 		8696390E1B8262CC0058846F /* ZoomCam */ = {
 			isa = PBXGroup;
 			children = (
+				8654AACA1B8BBDEA002A22FA /* media */,
 				869639411B8263FB0058846F /* Constants.m */,
 				869639421B8263FB0058846F /* Constants.h */,
 				8696394D1B82642B0058846F /* Recording */,
@@ -147,6 +207,8 @@
 		8696394D1B82642B0058846F /* Recording */ = {
 			isa = PBXGroup;
 			children = (
+				867E0FEC1BA2FC8D008651FB /* GPUCaptureManager.h */,
+				867E0FED1BA2FC8D008651FB /* GPUCaptureManager.m */,
 				869639541B8274240058846F /* CaptureManager.h */,
 				869639551B8274240058846F /* CaptureManager.m */,
 				869639561B8274240058846F /* Clip.h */,
@@ -224,6 +286,12 @@
 			mainGroup = 869639031B8262CC0058846F;
 			productRefGroup = 8696390D1B8262CC0058846F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 867E0FE31BA2FC7C008651FB /* Products */;
+					ProjectRef = 867E0FE21BA2FC7C008651FB /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8696390B1B8262CC0058846F /* ZoomCam */,
@@ -232,13 +300,38 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		867E0FE91BA2FC7D008651FB /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 867E0FE81BA2FC7D008651FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		867E0FEB1BA2FC7D008651FB /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 867E0FEA1BA2FC7D008651FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		8696390A1B8262CC0058846F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8654AAD31B8BC0CC002A22FA /* record@2x.png in Resources */,
+				86A5C7EF1B8C12C600C07587 /* cancel@2x.png in Resources */,
 				8696391B1B8262CC0058846F /* Main.storyboard in Resources */,
+				86C3DA571B8D24BB006149DD /* circle@2x.png in Resources */,
+				86A5C7ED1B8C100E00C07587 /* spin@2x.png in Resources */,
+				8654AAD41B8BC0CC002A22FA /* stop@2x.png in Resources */,
+				8654AAD01B8BBE0B002A22FA /* logo@2x.png in Resources */,
 				869639201B8262CC0058846F /* LaunchScreen.xib in Resources */,
+				86A5C7EC1B8C100E00C07587 /* share@2x.png in Resources */,
+				86C3DA551B8D2335006149DD /* done@2x.png in Resources */,
 				8696391D1B8262CC0058846F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +359,7 @@
 				869639501B8271D00058846F /* PreviewViewController.m in Sources */,
 				869639121B8262CC0058846F /* main.m in Sources */,
 				869639371B82638B0058846F /* RecordViewController.m in Sources */,
+				867E0FEE1BA2FC8D008651FB /* GPUCaptureManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +554,7 @@
 				869639311B8262CC0058846F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		869639321B8262CC0058846F /* Build configuration list for PBXNativeTarget "ZoomCamTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +563,7 @@
 				869639341B8262CC0058846F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

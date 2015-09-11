@@ -14,7 +14,6 @@
 @interface PreviewViewController ()
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
-@property (weak, nonatomic) IBOutlet UIButton *buttonShare;
 
 @end
 
@@ -23,8 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.buttonShare addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
     
     self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:self.clip.asset.URL];
     [self.moviePlayer prepareToPlay];
@@ -50,13 +47,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)share {
+- (IBAction)share:(id)sender {
+    [self.moviePlayer pause];
+    
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self.clip.asset.URL] applicationActivities:nil];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (IBAction)cancel:(id)sender {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.moviePlayer pause];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    __weak PreviewViewController *weakSelf = self;
+    [alert addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [weakSelf.moviePlayer stop];
+        weakSelf.moviePlayer = nil;
+        
+        [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*
