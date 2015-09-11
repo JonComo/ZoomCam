@@ -9,7 +9,6 @@
 #import "PreviewViewController.h"
 
 @import MediaPlayer;
-#import "Clip.h"
 
 @interface PreviewViewController ()
 
@@ -23,11 +22,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:self.clip.asset.URL];
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:self.fileURL];
     [self.moviePlayer prepareToPlay];
     
     self.moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
     self.moviePlayer.shouldAutoplay = YES;
+    
     self.moviePlayer.view.frame = CGRectMake(0.f, self.navigationController.navigationBar.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.width);
     
     [self.view addSubview:self.moviePlayer.view];
@@ -50,7 +50,7 @@
 - (IBAction)share:(id)sender {
     [self.moviePlayer pause];
     
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self.clip.asset.URL] applicationActivities:nil];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self.fileURL] applicationActivities:nil];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
@@ -71,15 +71,5 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

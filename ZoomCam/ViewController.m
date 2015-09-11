@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "Constants.h"
+#import "GPUCaptureManager.h"
 
 @interface ViewController ()
 
@@ -24,8 +24,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.imageViewLogo.layer.zPosition = 100.f;
-    
-    self.view.backgroundColor = [Constants defaultBackgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -54,9 +53,7 @@
     copy.alpha = .2f;
     copy.layer.zPosition = 0.f;
     [self.view addSubview:copy];
-    
-    __weak ViewController *weakSelf = self;
-    
+        
     const CGFloat zoom = 2.f;
     
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
@@ -71,10 +68,9 @@
 - (void)clearClips {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSArray *clips = [fileManager contentsOfDirectoryAtPath:[Constants clipsDirectory] error:nil];
+    NSArray *clips = [fileManager contentsOfDirectoryAtPath:[GPUCaptureManager clipsDirectory] error:nil];
     for (NSString *clipName in clips) {
-        [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@/%@", [Constants clipsDirectory], clipName] error:nil];
-        NSLog(@"Cleared clip");
+        [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@/%@", [GPUCaptureManager clipsDirectory], clipName] error:nil];
     }
 }
 

@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class Clip;
-
 @interface PreviewViewController : UIViewController
 
-@property (nonatomic, strong) Clip *clip;
+@property (nonatomic, copy) NSURL *fileURL;
 
 @end
